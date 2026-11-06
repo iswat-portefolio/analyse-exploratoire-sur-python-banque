@@ -1,0 +1,19 @@
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Fichiers temporaires des notebooks
+.ipynb_checkpoints/
+
+# Environnements Python locaux
+.venv/
+venv/
+
+# Variables d’environnement et secrets
+.env
+.env.*
+!.env.example
+
+# Fichiers système
+.DS_Store
+Thumbs.db
