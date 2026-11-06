@@ -1,0 +1,18 @@
+variable,modalite,part_reference
+tranche_age,18-24,0.1
+tranche_age,25-34,0.15
+tranche_age,35-44,0.16
+tranche_age,45-54,0.17
+tranche_age,55-64,0.16
+tranche_age,65+,0.26
+genre,F,0.52
+genre,H,0.48
+region,Île-de-France,0.19
+region,Nord-Est,0.24
+region,Ouest,0.21
+region,Sud-Ouest,0.14
+region,Sud-Est,0.19
+region,Outre-mer,0.03
+pays_residence,France,0.7
+pays_residence,Union européenne,0.2
+pays_residence,Hors UE,0.1
