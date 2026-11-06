@@ -1,30 +1,37 @@
 # 📊 Analyse exploratoire et interprétation métier · Notebooks et données
 
-Projet de 2 jours (Mastère 2 Data & IA, bloc BC2, compétences C2.6 à C2.10). Les données sont fictives, générées pour la formation.
+# Brief · Crédit Azur
+Entreprise et données fictives, conçues pour la formation.
 
-| Dossier | Pour qui | Contenu |
-|---|---|---|
-| `data/` | **Tous** | Trois secteurs (commerce, banque, hôtellerie), leur brief (`BRIEF_*.md`), la population de référence, et le jeu de démonstration du Fournil Moderne. |
-| `exercices/` | **Élèves** | Les notebooks dirigés, valables pour les trois secteurs : on choisit son secteur dans la première cellule. |
+# Les commanditaires
+Marc Leroy, directeur des risques, et Inès Benali, responsable conformité. Crédit Azur propose du crédit à la consommation en agence, en ligne et via des courtiers.
 
-Tout se fait dans **Google Colab** : la première cellule de chaque notebook télécharge `config_projet.py` en une seconde, et chaque fichier de données se télécharge ensuite au premier usage, un seul à la fois. Rien à installer sur les postes, pas besoin de connecter Google Drive.
+# Le contexte
+Le 1er mars 2024, un nouveau modèle de score (« score V2 ») a remplacé l'ancien pour décider de l'accord des crédits. Il pèse davantage l'ancienneté dans l'emploi et le type de contrat.
+Depuis, la production a baissé et des associations de consommateurs interpellent la banque sur l'accès au crédit des jeunes actifs.
+Le score d'octroi de crédit est un système d'IA à haut risque au sens du règlement européen sur l'IA : la conformité veut un état des lieux documenté.
 
-## Déroulé
+# La demande
+Comment évoluent les demandes, la production et le produit net bancaire (PNB) estimé ? Quelle saisonnalité, quel effet du score V2 ?
+Quels types de crédit et quels canaux portent l'activité ?
+Le score V2 a-t-il créé ou accentué des écarts entre groupes (âge, genre, région) ? Ces écarts s'expliquent-ils par des critères de risque ?
+Que recommandez-vous, avec quels indicateurs de suivi, y compris d'inclusion financière ?
+Les données · banque_credit_azur.csv
+Une ligne = une demande de crédit, de janvier 2023 à décembre 2025.
 
-| Moment | Formateur (`demos/`) | Élèves (`exercices/`) |
-|---|---|---|
-| J1 · 9h00 | Brief et constitution des groupes | `00_installation` |
-| J1 · 9h15 | | `01_exploration_autonome` (30 min, sans consignes) |
-| J1 · 9h45 | `D01_demo_exploration` | `02_univarie_bivarie` (10h00) |
-| J1 · 11h00 | `D02_demo_series` | `03_series_temporelles` (11h20) |
-| J1 · 13h45 | `D03_demo_biais` | `04_biais_fairlearn` (14h15), livrable Git à 17h00 |
-| J2 · 9h15 | `D04_demo_dashboard` | `05_dashboard_plotly` (9h45), livrable HTML à 12h30 |
-| J2 · 13h30 | | `06_recommandations`, puis restitutions |
-
-## Dans Colab
-1. Ouvrez le notebook depuis Google Drive (double-clic › Google Colaboratory).
-2. Exécutez la première cellule « ⚙️ À exécuter en premier » : quelques secondes.
-3. Choisissez votre secteur dans la cellule suivante : seul le fichier de ce secteur est téléchargé.
-4. Pour versionner : *Fichier › Enregistrer une copie dans GitHub*.
-
-En local (JupyterLab), gardez `config_projet.py` à côté des notebooks et le dossier `data/` juste au-dessus : rien n'est téléchargé.
+# Colonne	Description
+date_demande	Date de la demande
+demande_id, client_id	Identifiants
+genre, age, tranche_age, region	Profil du demandeur
+canal	agence, web ou courtier
+type_credit	auto, travaux, personnel, renouvelable
+montant_demande, duree_mois	Montant demandé (€) et durée
+revenu_mensuel	Revenu net mensuel déclaré (€)
+taux_endettement	Charges mensuelles, crédit compris, divisées par le revenu
+anciennete_emploi_ans, contrat	Ancienneté dans l'emploi et type de contrat
+score_algo	Score du modèle en vigueur à la date de la demande (0 à 1)
+credit_accorde	1 si le crédit a été accordé
+montant_accorde	Montant accordé (0 si refus)
+pnb_estime_eur	Produit net bancaire estimé sur la durée du crédit
+rembourse_sans_incident	1 si aucun incident sur 12 mois ; vide si le crédit a été refusé
+reference_population.csv donne la répartition de la population française adulte (approximation pédagogique inspirée de l'INSEE).
