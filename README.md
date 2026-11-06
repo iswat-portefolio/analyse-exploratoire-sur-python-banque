@@ -35,3 +35,6 @@ montant_accorde	Montant accordé (0 si refus)
 pnb_estime_eur	Produit net bancaire estimé sur la durée du crédit
 rembourse_sans_incident	1 si aucun incident sur 12 mois ; vide si le crédit a été refusé
 reference_population.csv donne la répartition de la population française adulte (approximation pédagogique inspirée de l'INSEE).
+
+# equipe : iswat, yasmine et eba
+# les fichiers officiels sont executés portent nos noms en complements du dashboard 05 et du 06_recommendations
